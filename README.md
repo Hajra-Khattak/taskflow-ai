@@ -76,3 +76,6 @@ src/
 
 - The AI rate limit (10 requests per user per 10 minutes) is kept in memory, so it resets when the serverless function restarts.
 - The contact form does not send messages anywhere yet.
+
+# taskflow-ai
+An AI-powered task and habit management dashboard built with React, Tailwind CSS, Firebase, and Claude AI. Organize tasks with a Kanban board, track daily habits and streaks, visualize productivity statistics, and generate task subtasks using AI.
