@@ -8,7 +8,7 @@ export default function FeaturesSection({ isLoggedIn, ctaTo }) {
     <section id="features" className="scroll-mt-24 bg-gray-50 px-5 py-24 dark:bg-gray-900/50 lg:px-8">
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="absolute mx-auto max-w-[200px] lg:mx-0">
+        <div className="hidden md:block absolute mx-auto max-w-[200px] lg:mx-0">
           <img loading="lazy" decoding="async" src="/images/mascots/hero-blue-hoodie-boy.png" alt="" className="w-full" />
 
           <span className="floating-card absolute -right-14 top-6 rounded-xl bg-blue-500 px-3 py-2 text-xs font-bold text-white shadow-lg">
@@ -24,7 +24,7 @@ export default function FeaturesSection({ isLoggedIn, ctaTo }) {
           center
         />
 
-        <div className="absolute right-0 top-0 max-w-[200px] lg:mx-0">
+        <div className="hidden md:block absolute right-0 top-0 max-w-[200px] lg:mx-0">
           <img loading="lazy" decoding="async" src="/images/mascots/hero-blue-hoodie-boy.png" alt="" className="w-full -scale-x-100" />
 
           
