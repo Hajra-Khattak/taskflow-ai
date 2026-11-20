@@ -24,7 +24,7 @@ import Skeleton from '../Skeleton/Skeleton'
 
 const COLUMN_PREFIX = 'col-'
 
-// { todo: [...], doing: [...], done: [...] } built from the flat task list
+
 function groupTasks(tasks) {
   const result = { todo: [], doing: [], done: [] }
   tasks.forEach((t) => {
@@ -33,7 +33,7 @@ function groupTasks(tasks) {
   return result
 }
 
-// Finds which column an id belongs to. The id can be a task or a column.
+
 function locate(cols, id) {
   if (typeof id === 'string' && id.startsWith(COLUMN_PREFIX)) {
     return id.slice(COLUMN_PREFIX.length)

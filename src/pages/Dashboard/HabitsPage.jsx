@@ -44,7 +44,7 @@ export default function HabitsPage() {
         </Button>
       </div>
 
-      {/* Summary */}
+
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {summary.map((s) => (
           <div
@@ -57,7 +57,7 @@ export default function HabitsPage() {
         ))}
       </div>
 
-      {/* Habit cards */}
+  
       {loadingHabits ? (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           <Skeleton className="h-80 w-full" />
@@ -87,7 +87,7 @@ export default function HabitsPage() {
         </div>
       )}
 
-      {/* Weekly grid, for checking past days */}
+     
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white mt-10 mb-4">
         This week
       </h2>

@@ -52,7 +52,7 @@ export default function WeeklyHabits({ habits, loading, onToggleDay, onAdd, onEd
 
       <div className="overflow-x-auto">
         <div className="min-w-[660px]">
-          {/* Day header */}
+    
           <div className="grid grid-cols-[220px_repeat(7,1fr)] border-b border-gray-100 dark:border-gray-800">
             <div />
             {week.map((d) => (
@@ -80,7 +80,7 @@ export default function WeeklyHabits({ habits, loading, onToggleDay, onAdd, onEd
             ))}
           </div>
 
-          {/* Loading */}
+        
           {loading && (
             <div className="space-y-3 py-4">
               <Skeleton className="h-10 w-full" />
@@ -88,7 +88,6 @@ export default function WeeklyHabits({ habits, loading, onToggleDay, onAdd, onEd
             </div>
           )}
 
-          {/* Empty */}
           {!loading && habits.length === 0 && (
             <div className="py-10 text-center">
               <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -104,7 +103,6 @@ export default function WeeklyHabits({ habits, loading, onToggleDay, onAdd, onEd
             </div>
           )}
 
-          {/* Habit rows */}
           {!loading &&
             habits.map((habit) => {
               const count = weekCount(habit)
@@ -114,7 +112,7 @@ export default function WeeklyHabits({ habits, loading, onToggleDay, onAdd, onEd
                   key={habit.id}
                   className="group grid grid-cols-[220px_repeat(7,1fr)] items-center border-b last:border-b-0 border-gray-100 dark:border-gray-800"
                 >
-                  {/* Name, progress, edit and delete */}
+                
                   <div className="flex items-center gap-3 py-4 pr-2">
                     <span
                       className={`w-8 h-8 shrink-0 rounded-lg flex items-center justify-center text-sm font-bold text-white ${habit.color}`}
@@ -163,7 +161,7 @@ export default function WeeklyHabits({ habits, loading, onToggleDay, onAdd, onEd
                     </div>
                   </div>
 
-                  {/* Day checkboxes */}
+             
                   {week.map((d) => {
                     const checked = habit.completedDates.includes(d.key)
                     return (

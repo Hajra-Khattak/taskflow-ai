@@ -17,7 +17,7 @@ export function isValidZone(zone) {
   }
 }
 
-// 'YYYY-MM-DD' for a moment in time, as seen in the given time zone
+// 'YYYY-MM-DD' 
 export function toKey(date, timeZone) {
   const parts = new Intl.DateTimeFormat('en-US', {
     timeZone,

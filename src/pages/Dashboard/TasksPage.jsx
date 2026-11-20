@@ -35,7 +35,6 @@ export default function TasksPage() {
         </Button>
       </div>
 
-      {/* Priority filter */}
       <div className="flex flex-wrap items-center gap-2 mb-6">
         <span className="text-sm text-gray-600 dark:text-gray-400 mr-1">Priority:</span>
 

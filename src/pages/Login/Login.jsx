@@ -18,7 +18,6 @@ export default function Login() {
 
   const busy = loading || googleLoading
 
-  // Redirect as soon as Firebase reports a logged-in user
   useEffect(() => {
     if (user) navigate('/dashboard', { replace: true })
   }, [user, navigate])

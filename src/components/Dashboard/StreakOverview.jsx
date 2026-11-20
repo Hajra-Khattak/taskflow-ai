@@ -32,12 +32,10 @@ export default function StreakOverview({ habits = [], counts = {}, stats = {} })
   const current = stats.current ?? 0
   const longest = stats.longest ?? 0
 
-  // Progress toward the next milestone
   const next = milestones.find((m) => m > current) ?? null
   const previous = [...milestones].reverse().find((m) => m <= current) ?? 0
   const percent = next ? Math.round(((current - previous) / (next - previous)) * 100) : 100
 
-  // Last 7 days: a day is active if any task or habit was completed on it
   const last7 = Array.from({ length: 7 }, (_, i) => {
     const key = addDays(today, i - 6)
     return {
@@ -48,10 +46,10 @@ export default function StreakOverview({ habits = [], counts = {}, stats = {} })
     }
   })
 
-  // Habits ranked by current streak
+
   const ranked = [...habits].sort((a, b) => b.streak - a.streak || b.best - a.best).slice(0, 3)
 
-  // A streak is at risk when a habit has a streak but isn't checked in today
+
   const atRisk = habits.some((h) => h.streak > 0 && !h.done)
 
   let longestNote = 'Check in to start your first streak.'
@@ -71,7 +69,7 @@ export default function StreakOverview({ habits = [], counts = {}, stats = {} })
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {/* Current streak */}
+     
         <div className="rounded-xl p-5 bg-gradient-to-br from-orange-500 to-red-500 text-white shadow-sm">
           <div className="flex items-center gap-2 text-sm font-medium text-orange-100">
             <Icon path={flamePath} className="w-5 h-5" />
@@ -85,7 +83,6 @@ export default function StreakOverview({ habits = [], counts = {}, stats = {} })
             </span>
           </p>
 
-          {/* Last 7 days */}
           <div className="mt-5 flex items-center justify-between gap-1">
             {last7.map((d) => (
               <div key={d.key} className="flex flex-col items-center gap-1">
@@ -101,7 +98,7 @@ export default function StreakOverview({ habits = [], counts = {}, stats = {} })
             ))}
           </div>
 
-          {/* Next milestone */}
+   
           <div className="mt-5">
             <div className="flex justify-between text-xs text-orange-100 mb-1">
               <span>{next ? `Next goal: ${next} days` : 'Top milestone reached'}</span>
@@ -116,7 +113,7 @@ export default function StreakOverview({ habits = [], counts = {}, stats = {} })
           </div>
         </div>
 
-        {/* Longest streak */}
+    
         <div className="rounded-xl p-5 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm">
           <div className="flex items-center gap-2 text-sm font-medium text-purple-600 dark:text-purple-400">
             <Icon path={trophyPath} className="w-5 h-5" />
@@ -148,7 +145,7 @@ export default function StreakOverview({ habits = [], counts = {}, stats = {} })
           </div>
         </div>
 
-        {/* Top habit streaks */}
+   
         <div className="rounded-xl p-5 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm">
           <p className="text-sm font-medium text-gray-900 dark:text-white mb-4">
             Top habit streaks

@@ -20,7 +20,6 @@ export default function HabitCard({ habit, today, weekKeys, onCheckIn, onEdit, o
 
   return (
     <div className="group flex flex-col bg-white dark:bg-gray-900 rounded-xl p-5 border border-gray-100 dark:border-gray-800 shadow-sm">
-      {/* Name, goal, edit and delete */}
       <div className="flex items-start gap-3">
         <span
           className={`w-10 h-10 shrink-0 rounded-lg flex items-center justify-center text-base font-bold text-white ${habit.color}`}
@@ -95,7 +94,7 @@ export default function HabitCard({ habit, today, weekKeys, onCheckIn, onEdit, o
         </div>
       </div>
 
-      {/* Last 7 days */}
+      {/*  7 days */}
       <div className="mt-4">
         <p className="text-[10px] uppercase tracking-wide text-gray-400 mb-1.5">Last 7 days</p>
         <div className="flex items-center justify-between gap-1">

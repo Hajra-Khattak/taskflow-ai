@@ -14,7 +14,7 @@ import NotFound from './pages/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
 import Spinner from './components/Spinner/Spinner'
 
-// Loaded on demand so the landing page doesn't ship the dashboard + charts
+
 const Login = lazy(() => import('./pages/Login/Login'))
 const SignUp = lazy(() => import('./pages/SignUp/Signup'))
 const About = lazy(() => import('./pages/About/About'))

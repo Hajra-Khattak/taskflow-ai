@@ -1,13 +1,12 @@
 import { toKey, addDays, formatKey } from './dates.js'
 
-// 'YYYY-MM-DD' of the day a done task was completed, or null
 function completedKey(task, timeZone) {
   if (task.status !== 'done') return null
   const date = task.completedAt?.toDate?.()
   return date ? toKey(date, timeZone) : null
 }
 
-// [{ key, label, full, count }] for the last `days` days, ending today
+
 export function completedPerDay(tasks, today, timeZone, days = 7) {
   const counts = {}
   tasks.forEach((t) => {
@@ -26,7 +25,6 @@ export function completedPerDay(tasks, today, timeZone, days = 7) {
   })
 }
 
-// How many tasks were completed on the given days (for example, Monday to Sunday)
 export function completedInDays(tasks, dayKeys, timeZone) {
   return tasks.filter((t) => dayKeys.includes(completedKey(t, timeZone))).length
 }

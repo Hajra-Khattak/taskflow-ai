@@ -9,7 +9,7 @@ export default function Dashboard() {
 
   const handleSave = (e) => {
     e.preventDefault()
-    console.log('Saving:', title)   // Firebase comes later
+    console.log('Saving:', title)   
     setShowForm(false)
     setTitle('')
   }

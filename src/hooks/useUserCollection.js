@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 
-// Live list of the signed in user's documents.
-// `subscribe(uid, onData, onError)` must return an unsubscribe function.
-// State remembers which uid it belongs to, so loading is derived instead of set inside the effect.
+
 export function useUserCollection(subscribe, errorMessage) {
   const { user } = useAuth()
   const uid = user?.uid

@@ -37,7 +37,7 @@ export default function Sidebar({ open, onClose }) {
 
   return (
     <>
-      {/* Dark overlay on phones */}
+    
       {open && (
         <div className="fixed inset-0 z-40 bg-black/50 lg:hidden" onClick={onClose} />
       )}
@@ -47,7 +47,7 @@ export default function Sidebar({ open, onClose }) {
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* Logo */}
+        
         <div className="h-16 flex items-center justify-between px-5 border-b border-gray-200 dark:border-gray-800">
           <Link to="/" className="text-xl font-bold text-blue-600 dark:text-blue-400">
             TaskFlow AI
@@ -62,7 +62,7 @@ export default function Sidebar({ open, onClose }) {
           </button>
         </div>
 
-        {/* Links */}
+  
         <nav className="flex-1 px-3 py-4 space-y-1">
           {links.map((l) => (
             <NavLink key={l.to} to={l.to} end={l.end} onClick={onClose} className={linkClass}>
@@ -83,7 +83,7 @@ export default function Sidebar({ open, onClose }) {
           ))}
         </nav>
 
-        {/* Bottom actions */}
+    
         <div className="px-3 py-4 border-t border-gray-200 dark:border-gray-800 space-y-1">
           <button type="button" onClick={toggleTheme} className={linkClass({ isActive: false }) + ' w-full'}>
             {theme === 'dark' ? 'Light mode' : 'Dark mode'}
@@ -92,7 +92,7 @@ export default function Sidebar({ open, onClose }) {
             Back to website
           </Link>
           <TimeZoneSelect />
-          {/* Logout: connect to Firebase signOut in Phase 2 */}
+        
           <button
             type="button"
             onClick={handleLogout}

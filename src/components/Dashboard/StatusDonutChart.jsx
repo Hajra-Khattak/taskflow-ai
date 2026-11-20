@@ -69,7 +69,7 @@ export default function StatusDonutChart({ tasks, loading }) {
               </PieChart>
             </ResponsiveContainer>
 
-            {/* Total in the middle */}
+          
             <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
               <span className="text-3xl font-bold text-gray-900 dark:text-white">{total}</span>
               <span className="text-xs text-gray-500 dark:text-gray-400">
@@ -78,7 +78,7 @@ export default function StatusDonutChart({ tasks, loading }) {
             </div>
           </div>
 
-          {/* Legend */}
+         
           <ul className="mt-5 space-y-2">
             {data.map((d) => (
               <li key={d.key} className="flex items-center justify-between text-sm">

@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 import { useAuth } from '../../context/AuthContext'
 import { useTheme } from '../../context/ThemeContext'
 
-// Underline hover style shared by the desktop links
+
 const underline =
   "relative px-4 py-2 text-sm transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-4 after:h-0.5 after:bg-purple-600 dark:after:bg-purple-400 after:transition-all after:duration-300"
 

@@ -24,10 +24,10 @@ export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   // ---------- Search ----------
-  // The search text lives in the URL (?q=...), so the box is filled only on the results page
+
   const onSearchPage = pathname === '/dashboard/search'
   const searchText = onSearchPage ? searchParams.get('q') || '' : ''
-  const returnTo = useRef('/dashboard') // the page to go back to when the box is cleared
+  const returnTo = useRef('/dashboard') 
 
   const handleSearch = (e) => {
     const value = e.target.value
@@ -76,7 +76,7 @@ export default function DashboardLayout() {
   const [habitDeleting, setHabitDeleting] = useState(false)
   const [habitDeleteError, setHabitDeleteError] = useState('')
 
-  // Habits with calculated fields (done today, streaks)
+  // Habits with calculated fields 
   const habits = rawHabits.map((h) => {
     const dates = h.completedDates || []
     return {
@@ -89,7 +89,7 @@ export default function DashboardLayout() {
     }
   })
 
-  // Heatmap data and top numbers
+
   const activityCounts = buildCounts(tasks, habits, timeZone)
   const weekKeys = getWeekDays(today).map((d) => d.key)
   const goalTotal = habits.reduce((sum, h) => sum + h.weeklyGoal, 0)
@@ -104,7 +104,6 @@ export default function DashboardLayout() {
     consistency: goalTotal === 0 ? 0 : Math.round((goalDone / goalTotal) * 100),
   }
 
-  // Runs an action and shows a red toast if it fails
   const run = async (action, failMessage = 'Something went wrong. Please try again.') => {
     try {
       await action()
@@ -137,14 +136,13 @@ export default function DashboardLayout() {
       'Could not update the task.'
     )
 
-  // Saves the new status and order after a drag and drop
   const handleMoveTasks = async (updates) => {
     try {
       await moveTasks(updates)
     } catch (err) {
       console.error(err)
       toast.error('Could not move the task. It was put back.')
-      throw err // lets the board put the card back where it was
+      throw err 
     }
   }
 
@@ -174,7 +172,6 @@ export default function DashboardLayout() {
   const openBreakdown = (task) => setAiTarget(task)
   const closeBreakdown = () => setAiTarget(null)
 
-  // Saves the chosen subtasks as new tasks in To Do, one after another so they keep their order
   const handleAddSubtasks = async (titles, parent) => {
     for (const title of titles) {
       await createTask({
@@ -194,7 +191,7 @@ export default function DashboardLayout() {
   const openEditHabit = (habit) => setHabitFormState({ habit })
   const closeHabitForm = () => setHabitFormState(null)
 
-  // Creates a new habit, or saves changes when a habit is being edited
+  
   const handleSaveHabit = async (data) => {
     if (habitFormState.habit) {
       await editHabit(habitFormState.habit.id, data)
@@ -234,13 +231,13 @@ export default function DashboardLayout() {
       'Could not save your check-in.'
     )
 
-  // Used by the habits list (toggles today)
+ 
   const toggleHabit = (id) => {
     const habit = habits.find((h) => h.id === id)
     if (habit) toggleHabitDay(habit, today)
   }
 
-  // Only loading errors stay as a banner. Everything else is a toast.
+
   const bannerError = tasksError || habitsError
 
   return (
@@ -248,7 +245,7 @@ export default function DashboardLayout() {
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className="flex-1 min-w-0 flex flex-col">
-        {/* Top bar */}
+     
         <header className="sticky top-0 z-30 h-16 flex items-center gap-3 px-4 sm:px-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
           <button
             type="button"
@@ -306,7 +303,7 @@ export default function DashboardLayout() {
         </main>
       </div>
 
-      {/* Add / Edit task popup */}
+    
       <TaskFormModal
         open={!!formState}
         onClose={closeForm}
@@ -316,7 +313,7 @@ export default function DashboardLayout() {
         defaultDue={formState?.due}
       />
 
-      {/* Delete task popup */}
+    
       <Modal open={!!deleteTarget} onClose={closeDelete} title="Delete task?">
         <p className="text-sm text-gray-600 dark:text-gray-400">
           "{deleteTarget?.title}" will be deleted. This can't be undone.
@@ -334,7 +331,7 @@ export default function DashboardLayout() {
         </div>
       </Modal>
 
-      {/* AI breakdown popup */}
+     
       <AiBreakdownModal
         open={!!aiTarget}
         task={aiTarget}
@@ -342,7 +339,7 @@ export default function DashboardLayout() {
         onAdd={handleAddSubtasks}
       />
 
-      {/* Add / Edit habit popup */}
+     
       <HabitFormModal
         open={!!habitFormState}
         onClose={closeHabitForm}
@@ -351,7 +348,7 @@ export default function DashboardLayout() {
         defaultColor={habitColors[rawHabits.length % habitColors.length]}
       />
 
-      {/* Delete habit popup */}
+    
       <Modal open={!!habitDeleteTarget} onClose={closeHabitDelete} title="Delete habit?">
         <p className="text-sm text-gray-600 dark:text-gray-400">
           "{habitDeleteTarget?.name}" will be deleted, along with its check-in history. This can't

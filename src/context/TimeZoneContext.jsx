@@ -6,7 +6,7 @@ const TimeZoneContext = createContext()
 export function TimeZoneProvider({ children }) {
   const [browserZone, setBrowserZone] = useState(getBrowserZone)
 
-  // 'auto' means "use the device's time zone"
+
   const [setting, setSettingState] = useState(() => {
     try {
       const saved = localStorage.getItem('timeZone')

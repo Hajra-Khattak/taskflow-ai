@@ -20,7 +20,6 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false)
   const [googleLoading, setGoogleLoading] = useState(false)
 
-  // Redirect as soon as Firebase reports a logged-in user
   useEffect(() => {
     if (user) navigate('/dashboard', { replace: true })
   }, [user, navigate])

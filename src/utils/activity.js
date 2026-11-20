@@ -1,6 +1,5 @@
 import { toKey, addDays, daysBetween } from './dates.js'
 
-// Consecutive days up to today. If today isn't checked yet, counting starts from yesterday.
 export function currentStreak(dates = [], today) {
   const set = new Set(dates)
   let key = set.has(today) ? today : addDays(today, -1)

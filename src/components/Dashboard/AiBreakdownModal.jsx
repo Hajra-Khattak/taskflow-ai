@@ -4,9 +4,9 @@ import Button from '../Button/Button'
 import { suggestSubtasks } from '../../services/aiService'
 
 function Breakdown({ task, onAdd, onClose }) {
-  const [status, setStatus] = useState('loading') // loading | ready | empty | error
+  const [status, setStatus] = useState('loading') 
   const [error, setError] = useState('')
-  const [items, setItems] = useState([]) // { id, text, checked }
+  const [items, setItems] = useState([]) 
   const [attempt, setAttempt] = useState(0)
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState('')
@@ -28,7 +28,6 @@ function Breakdown({ task, onAdd, onClose }) {
     return () => controller.abort()
   }, [task.id, task.title, task.description, attempt])
 
-  // A new task remounts this component (key={task.id}), so only a retry needs a manual reset
   const retry = () => {
     setStatus('loading')
     setError('')
@@ -106,7 +105,7 @@ function Breakdown({ task, onAdd, onClose }) {
         </div>
       )}
 
-      {/* Results */}
+     
       {status === 'ready' && (
         <div className="mt-4">
           <div className="flex items-center justify-between mb-2">
